@@ -1,5 +1,5 @@
 const { test, expect } = require('../Fixture/helper');
-const cartData = require('../Jsonfiles/cartdata_set.json');
+const cartData = require('../Data/cartdata_set.json');
 
 test.describe('🛒 Tests panier Saucedemo avec setup', () => {
 

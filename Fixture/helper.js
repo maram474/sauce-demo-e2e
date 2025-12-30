@@ -1,6 +1,6 @@
 // tests/test-setup.js
 const { test: base } = require('@playwright/test');
-const cartData = require('../Jsonfiles/cartdata_set.json');
+const cartData = require('../Data/cartdata_set.json');
 
 async function setupConnection(page) {
   await page.goto(cartData.base_url);
