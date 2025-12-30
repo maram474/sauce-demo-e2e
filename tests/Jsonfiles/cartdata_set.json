@@ -1,0 +1,99 @@
+{
+  "test_suite_name": "Shopping Cart Test Suite 2",
+  "base_url": "https://www.saucedemo.com/",
+  "login": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "test_cases": [
+    {
+      "id": "CART2_UC1",
+      "description": "Ajout d'un seul produit au panier (Backpack)",
+      "product_name": "Sauce Labs Backpack",
+      "action": "add",
+      "expected_cart_count": 1,
+      "expected_items": ["Sauce Labs Backpack"]
+    },
+    {
+      "id": "CART2_UC2",
+      "description": "Ajout d'un seul produit au panier (Bike Light)",
+      "product_name": "Sauce Labs Bike Light",
+      "action": "add",
+      "expected_cart_count": 1,
+      "expected_items": ["Sauce Labs Bike Light"]
+    },
+    {
+      "id": "CART2_UC3",
+      "description": "Ajout de deux produits différents",
+      "products": ["Sauce Labs Backpack", "Sauce Labs Bolt T-Shirt"],
+      "action": "add_multiple",
+      "expected_cart_count": 2,
+      "expected_items": ["Sauce Labs Backpack", "Sauce Labs Bolt T-Shirt"]
+    },
+    {
+      "id": "CART2_UC4",
+      "description": "Ajout de deux produits différents (Onesie + Fleece Jacket)",
+      "products": ["Sauce Labs Onesie", "Sauce Labs Fleece Jacket"],
+      "action": "add_multiple",
+      "expected_cart_count": 2,
+      "expected_items": ["Sauce Labs Onesie", "Sauce Labs Fleece Jacket"]
+    },
+    {
+      "id": "CART2_UC5",
+      "description": "Retrait d'un produit du panier (Backpack)",
+      "product_name": "Sauce Labs Backpack",
+      "action": "add_then_remove",
+      "expected_cart_count": 0,
+      "expected_items": []
+    },
+    {
+      "id": "CART2_UC6",
+      "description": "Retrait d'un produit du panier (Bike Light)",
+      "product_name": "Sauce Labs Bike Light",
+      "action": "add_then_remove",
+      "expected_cart_count": 0,
+      "expected_items": []
+    },
+    {
+      "id": "CART2_UC7",
+      "description": "Continuer les achats après ajout au panier (Onesie)",
+      "product_name": "Sauce Labs Onesie",
+      "action": "add_and_continue",
+      "expected_cart_count": 1,
+      "continue_shopping": true
+    },
+    {
+      "id": "CART2_UC8",
+      "description": "Continuer les achats après ajout au panier (Fleece Jacket)",
+      "product_name": "Sauce Labs Fleece Jacket",
+      "action": "add_and_continue",
+      "expected_cart_count": 1,
+      "continue_shopping": true
+    },
+    {
+      "id": "CART2_UC9",
+      "description": "Vider le panier complet avec 3 produits",
+      "products": ["Sauce Labs Backpack", "Sauce Labs Bike Light", "Sauce Labs Bolt T-Shirt"],
+      "action": "add_all_then_remove_all",
+      "expected_cart_count": 0,
+      "expected_items": []
+    },
+    {
+      "id": "CART2_UC10",
+      "description": "Vider le panier complet avec 2 produits",
+      "products": ["Sauce Labs Onesie", "Test.allTheThings() T-Shirt (Red)"],
+      "action": "add_all_then_remove_all",
+      "expected_cart_count": 0,
+      "expected_items": []
+    }
+  ],
+  "metadata": {
+    "version": "2.1",
+    "description": "Tests avancés pour le panier d'achat avec tous les types d'actions et au moins deux cas par action.",
+    "notes": [
+      "Chaque test commence avec un panier vide.",
+      "Les produits sont ajoutés puis retirés selon le scénario.",
+      "Le compteur du panier doit être correct à la fin."
+    ]
+  }
+}
